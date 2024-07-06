@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -44,7 +45,7 @@ module.exports = {
       },
       boxShadow: {
         "light-100":
-          "0px 12px 20px 0px rgba(184, 184, 184, 0.03), 0px 6px 12px 0px",
+          "0px 12px 20px 0px rgba(184, 184, 184, 0.03), 0px 6px 12px 0px rgba(184, 184, 184, 0.02), 0px 2px 4px 0px rgba(184, 184, 184, 0.03)",
         "light-200": "10px 10px 20px 0px rgba(218, 213, 213, 0.10)",
         "light-300": "-10px 10px 20px 0px rgba(218, 213, 213, 0.10)",
         "dark-100": "0px 2px 10px 0px rgba(46, 52, 56, 0.10)",
@@ -59,20 +60,12 @@ module.exports = {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: 0,
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: 0,
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
         },
       },
       animation: {
@@ -81,7 +74,5 @@ module.exports = {
       },
     },
   },
-  plugins:[require("tailwindcss-animate"),
-    require("@tailwindcss/typography")
-  ]
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };
