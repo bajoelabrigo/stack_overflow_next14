@@ -1,11 +1,13 @@
-import Navbar from '@/components/Navbar'
+'use client'
 import { UserButton } from '@clerk/nextjs'
-import React from 'react'
+import { useTheme } from '@/context/ThemeProvider'
 
 const Home = () => {
+  const { mode } = useTheme()
   return (
     <div>
-      <Navbar/>
+      {mode}
+      <UserButton afterSwitchSessionUrl=''/>
     </div>
   )
 }
