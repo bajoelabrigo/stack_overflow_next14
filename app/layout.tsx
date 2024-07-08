@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "A community-driven platform for asking and programming quesrios. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in the web development, mobile app development, alforithms, data structures, and more.",
   icons: {
-    icon: "@/public/assets/images/site-logo.svg",
+    icon: "/assets/images/site-logo.svg",
   },
 };
 const inter = Inter({
