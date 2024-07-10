@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 
 interface Props {
-    _id:number;
+    _id:string;
     name:string;
     totalQuestions?:number;
     showCount?:boolean;

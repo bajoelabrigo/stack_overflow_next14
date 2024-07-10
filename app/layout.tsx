@@ -6,7 +6,7 @@ import "@/app/global.css";
 import { ThemeProvider } from "@/context/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "DevFlow",
+  title: "Dev OverFlow",
   description:
     "A community-driven platform for asking and programming quesrios. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in the web development, mobile app development, alforithms, data structures, and more.",
   icons: {
