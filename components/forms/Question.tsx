@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import { QuestionsSchema } from "@/lib/validations";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
+import { createQuestion } from "@/lib/actions/question.action";
 
 const type:any = 'create'
 
@@ -37,12 +38,13 @@ const Question = () => {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof QuestionsSchema>) {
+  async function onSubmit(values: z.infer<typeof QuestionsSchema>) {
    setIsSubmitting(true)
     
     try{
       //make an async call your API -> create a question
       //contain all from data
+      await createQuestion({})
 
       //navigate to home page
     }catch(error){
@@ -87,27 +89,20 @@ const Question = () => {
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="flex w-full flex-col gap-10"
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex w-full flex-col gap-10">
         <FormField
           control={form.control}
           name="title"
           render={({ field }) => (
             <FormItem className="flex w-full flex-col">
-              <FormLabel className="paragraph-semibold text-dark400_light800">
-                Question Title <span className="text-primary-500">*</span>
-              </FormLabel>
+              <FormLabel className="paragraph-semibold text-dark400_light800">Question Title <span className="text-primary-500">*</span></FormLabel>
               <FormControl className="mt-3.5">
-                <Input
-                  //placeholder="shadcn" {...field}
-                  className="no-focus paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 min-h-[56px] border"
-                />
+                <Input 
+                className="no-focus paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 min-h-[56px] border"
+                {...field} />
               </FormControl>
               <FormDescription className="body-regular mt-2.5 text-light-500">
-                Be specific and imagine you&apos;re asking a question to another
-                person.
+                Be specific and imagine you&apos;re asking a question to another person.
               </FormDescription>
               <FormMessage className="text-red-500" />
             </FormItem>
@@ -129,6 +124,8 @@ const Question = () => {
                     //@ts-ignore
                     editorRef.current = editor;
                   }}
+                  onBlur={field.onBlur}
+                  onEditorChange={(content) => field.onChange(content)}
                   initialValue=""
                   init={{
                     height: 500,
