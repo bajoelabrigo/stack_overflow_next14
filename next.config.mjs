@@ -3,8 +3,20 @@ const nextConfig = {
   experimental: {
     serverActions: true,
     mdxRs: true,
-    serverComponentsExternalPackages: ['moongoose']
+    serverComponentsExternalPackages: ['mongoose']
   },
-};
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*'
+      }, 
+      {
+        protocol: 'http',
+        hostname: '*'
+      }, 
+    ]
+  }
+}
 
-export default nextConfig;
+export default nextConfig
