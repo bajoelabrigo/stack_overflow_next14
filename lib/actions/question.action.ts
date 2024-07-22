@@ -1,5 +1,7 @@
 "use server";
 
+//Here I work Server actions
+
 import Question from "@/database/question.model";
 import { connectToDatabase } from "../mongoose";
 import Tag from "@/database/tag.model";
@@ -32,12 +34,13 @@ export async function createQuestion(params: CreateQuestionParams) {
     const question = await Question.create({ title, content, author });
 
     const tagDocuments = [];
-
+    
+    //Create the tags or get then if they already exist
     for (const tag of tags) {
       const existingTag = await Tag.findOneAndUpdate(
-        { name: { $regex: new RegExp(`^${tag}$`, "i") } },
-        { $setOnInsert: { name: tag }, $push: { question: question._id } },
-        { upsert: true, new: true }
+        { name: { $regex: new RegExp(`^${tag}$`, "i") } },  //filter tags
+        { $setOnInsert: { name: tag }, $push: { question: question._id } },//action with tags filtered
+        { upsert: true, new: true }//update new tags
       );
       tagDocuments.push(existingTag._id);
     }
