@@ -2,6 +2,11 @@ import { Schema } from "mongoose";
 
 import { IUser } from "@/mongodb";
 
+export interface Params {
+  params: string;
+  searchParams: string
+}
+
 export interface CreateAnswerParams {
   content: string;
   author: string; // User ID
