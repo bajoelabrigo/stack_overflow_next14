@@ -3,6 +3,7 @@ import React from "react";
 import { Inter, Space_Grotesk } from "next/font/google";
 import type { Metadata } from "next";
 import "@/app/global.css";
+import "../styles/prism.css";
 import { ThemeProvider } from "@/context/ThemeProvider";
 
 export const metadata: Metadata = {
@@ -39,9 +40,7 @@ export default function RootLayout({
             },
           }}
         >
-          <ThemeProvider>
-            {children}
-            </ThemeProvider>
+          <ThemeProvider>{children}</ThemeProvider>
         </ClerkProvider>
       </body>
     </html>

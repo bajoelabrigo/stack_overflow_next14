@@ -3,6 +3,7 @@ import { connectToDatabase } from "../mongoose";
 import { GetAllTagsParams, GetTopInteractedTagsParams } from "./shared.types";
 import Tag from "@/database/tag.model";
 
+//Put tags in community page
 export async function getTopInteractedTags(params: GetTopInteractedTagsParams) {
   try {
     connectToDatabase();
@@ -33,6 +34,8 @@ export async function getAllTags(params: GetAllTagsParams) {
     connectToDatabase();
 
     const tags = await Tag.find({})
+
+    return {tags}
   } catch (error) {
     console.log(error);
     throw error;

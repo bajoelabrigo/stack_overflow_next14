@@ -60,7 +60,7 @@ const MobileNav = () => {
           className="invert-colors sm:hidden"
         />
       </SheetTrigger>
-      <SheetContent side="left" className="background-light900_dark200 border-none">
+      <SheetContent side="left" className="background-light900_dark200 border-none ">
       <Link href="/" className="flex items-center gap-1">
         <Image
           src="/assets/images/site-logo.svg"
@@ -72,12 +72,12 @@ const MobileNav = () => {
         <p className="h2-bold text-dark100_light900 font-spaceGrotesk">Dev <span className="text-primary-500">Overflow</span></p>
       </Link>
       <div>
-        <SheetClose asChild>
+        <SheetClose asChild className="">
           <NavContent />
         </SheetClose>
 
         <SignedOut>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 min-h-full mt-[80px]">
             <SheetClose asChild>
               <Link href="/sign-in">
                 <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
