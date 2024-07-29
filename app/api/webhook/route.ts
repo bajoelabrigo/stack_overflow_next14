@@ -50,6 +50,8 @@ export async function POST(req: Request) {
     })
   }
  
+  //HERE I MADE ALL USER CRUD
+
   const eventType = evt.type;
 
   console.log({eventType})

@@ -28,7 +28,7 @@ interface Props {
   mongoUserId: string;
 }
 
-  const Question = ({ mongoUserId }: Props) => {
+const Question = ({ mongoUserId }: Props) => {
   const {mode} = useTheme()
   const editorRef = useRef(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -52,14 +52,13 @@ interface Props {
     try {
       // make an async call to your API -> create a question
       // contain all form data
-
-      await createQuestion({
-        title: values.title,
-        content: values.explanation,
-        tags: values.tags,
-        author: JSON.parse(mongoUserId),
-        path: pathname,
-      });
+        await createQuestion({
+            title: values.title,
+            content: values.explanation,
+            tags: values.tags,
+            author: JSON.parse(mongoUserId),
+            path: pathname,
+          });    
 
       // navigate to home page
       router.push('/');

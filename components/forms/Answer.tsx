@@ -24,6 +24,7 @@ const Answer = ({ question, questionId, authorId }: Props) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { mode } = useTheme();
   const editorRef = useRef(null)
+  
   const form = useForm<z.infer<typeof AnswerSchema>>({
     resolver: zodResolver(AnswerSchema),
     defaultValues: {
@@ -58,7 +59,7 @@ const Answer = ({ question, questionId, authorId }: Props) => {
 
   return (
     <div>
-      <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center sm:gap-2">
+      <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center sm:gap-2 mt-4">
         <h4 className="paragraph-semibold text-dark400_light800">Write your answer here</h4>
 
         <Button className="btn light-border-2 gap-1.5 rounded-md px-4 py-2.5 text-primary-500 shadow-none dark:text-primary-500"
