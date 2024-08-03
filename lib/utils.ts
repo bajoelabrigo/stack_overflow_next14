@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
-
+ 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -41,7 +41,7 @@ export const getTimestamp = (createdAt: Date): string => {
   }
 };
 
-export const formatAndDivideNumber = (num: number): string => {
+export const formatAndDivideNumber = (num: number): string | any => {
   if (num >= 1000000) {
     const formattedNum = (num / 1000000).toFixed(1);
     return `${formattedNum}M`;
@@ -49,6 +49,6 @@ export const formatAndDivideNumber = (num: number): string => {
     const formattedNum = (num / 1000).toFixed(1);
     return `${formattedNum}K`;
   } else {
-    return num.toString();
+    return num?.toString();
   }
 };
