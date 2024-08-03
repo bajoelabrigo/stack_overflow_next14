@@ -17,7 +17,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+
 const Page = async ({ params, searchParams }: Params) => {
+  
+  
+  
   const { userId: clerkId } = auth();
 
   let mongoUser;
@@ -26,11 +30,12 @@ const Page = async ({ params, searchParams }: Params) => {
     mongoUser = await getUserById({ userId: clerkId });
   }
 
-  const result = await getQuestionById({ questionId: params.id });
+  const result = await getQuestionById({ questionId: params.id});
 
   return (
     <>
       <div className="flex-start w-full flex-col">
+        
         <div className="flex w-full flex-col-reverse justify-between gap-5 sm:flex-row sm:items-center sm:gap-2">
           <Link
             href={`/profile/${result.author.clerkId}`}

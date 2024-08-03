@@ -4,7 +4,7 @@ import { IUser } from "@/mongodb";
 
 export interface Params {
   params: string;
-  searchParams: string
+  searchParams: string;
 }
 
 export interface CreateAnswerParams {
