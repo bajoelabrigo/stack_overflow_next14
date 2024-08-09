@@ -3,11 +3,11 @@ import Filter from "@/components/shared/Filter";
 import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
 
 import { UserFilters } from "@/constants/filters";
-import { getAllusers } from "@/lib/actions/user.actions";
+import { getAllUsers } from "@/lib/actions/user.actions";
 import Link from "next/link";
 
 const Page = async () => {
-  const result = await getAllusers({});
+  const result = await getAllUsers({});
 
   return (
     <>

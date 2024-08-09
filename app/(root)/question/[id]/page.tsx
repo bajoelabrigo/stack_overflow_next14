@@ -10,11 +10,11 @@ import { getUserById } from '@/lib/actions/user.actions';
 import { formatAndDivideNumber, getTimestamp } from '@/lib/utils';
 import { auth } from '@clerk/nextjs/server';
 
-import Image from 'next/image';
+import Image from 'next/image'; 
 import Link from 'next/link';
 import React from 'react'
 
-const Page = async ({ params, searchParams }) => {
+const Page = async ({ params, searchParams }: any) => {
   const { userId: clerkId } = auth();
 
   let mongoUser;
